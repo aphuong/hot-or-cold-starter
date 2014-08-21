@@ -35,13 +35,16 @@ $(document).ready(function(){
 		var userGuess = $(".text").val();
 		var guessNum = +userGuess;
 		
+		// only want to count and list guesses between 1 -100.
 		if (guessNum >= 1 && guessNum <= 100) {
 			// guessCount will now increase by 1 each time user enters an input.
     	guessCount = guessCount + 1;
     	$("#count").text(guessCount);
+    	// the user's guesses will be listed in #guessList
     	$("#guessList").append("<li>" + guessNum + "</li>");
 		};
     
+    // empty the input box and hot or cold feedback after each input is submitted. 
     $(".text").val('');
     $("#feedback li").empty();
    
