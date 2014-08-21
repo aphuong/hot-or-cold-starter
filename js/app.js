@@ -67,6 +67,7 @@ $(document).ready(function(){
   				}
     } else {
       alert("Please enter a whole number between 1 and 100!");
+      $("#userGuess").val(' ');
 	    }
 	});
 });
