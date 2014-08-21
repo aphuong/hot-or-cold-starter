@@ -54,11 +54,11 @@ $(document).ready(function(){
     
     if (guessNum >= 1 && guessNum <= 100) {
   		if (difference >= 50) {
-  			$("#feedback").append("<li>Freezing Cold</li>");
+  			$("#feedback").append("<li>Ice Cold</li>");
   				} else if (difference >= 30 && difference < 50) {
-  					$("#feedback").append("<li>Ice Cold</li>");
+  					$("#feedback").append("<li>Cold</li>");
           } else if (difference >= 20 && difference < 30) {
-            $("#feedback").append("<li>Cold</li>");
+            $("#feedback").append("<li>Warm</li>");
   				} else if (difference >= 10 && difference < 20) {
   					$("#feedback").append("<li>Hot</li>"); 
   				} else if (difference >= 5 && difference < 10) {
@@ -66,7 +66,7 @@ $(document).ready(function(){
   				} else if (difference >= 1 && difference < 5) {
             $("#feedback").append("<li>Flaming Hot</li>");
           } else if (difference == 0) {
-  					$("#feedback").append("<li>Correct Guess ... You're on FIRE!</li>");
+  					$("#feedback").append("<li>Correct, You're on FIRE!!!</li>");
   					// disable input and submit button to prevent users from continuing game after winning.
   					document.getElementById("userGuess").disabled = true;
   					document.getElementById("guessButton").disabled = true;
