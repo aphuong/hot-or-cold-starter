@@ -5,12 +5,12 @@ $(document).ready(function(){
   	$(".overlay").fadeIn(1000);
 	});
 
-	/*--- Hide information modal box ---*/
+/*--- Hide information modal box ---*/
 	$("a.close").click(function(){
 		$(".overlay").fadeOut(1000);
 	});
 	
-	
+	// global variables
   var secretNum
   var guessCount
   
@@ -33,8 +33,14 @@ $(document).ready(function(){
 	$("form").on("submit", function(event) {
 		event.preventDefault();
 		var userGuess = $(".text").val();
-		var guessNum = +userGuess;
-
+		var guessNum
+		
+		if (userGuess !== Nan)
+			return guessNum = +userGuess;
+		};
+		
+		
+		// guessCount will now increase by 1 each time user enters an input.
     guessCount = guessCount + 1;
     $("#count").text(guessCount);
     
@@ -60,6 +66,7 @@ $(document).ready(function(){
             $("#feedback").append("<li>Flaming Hot</li>");
           } else if (difference == 0) {
   					$("#feedback").append("<li>Correct Guess ... You're on FIRE!</li>");
+  					// disable input and submit button to prevent users from continuing game after winning.
   					document.getElementById("userGuess").disabled = true;
   					document.getElementById("guessButton").disabled = true;
   				}
