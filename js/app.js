@@ -35,7 +35,7 @@ $(document).ready(function(){
 		var userGuess = $(".text").val();
 		var guessNum = +userGuess;
 		
-		if ($.isNumeric(guessNum)) {
+		if (guessNum >= 1 && guessNum <= 100) {
 			// guessCount will now increase by 1 each time user enters an input.
     	guessCount = guessCount + 1;
     	$("#count").text(guessCount);
