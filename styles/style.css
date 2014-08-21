@@ -221,6 +221,10 @@ h2 {
 	color: #fff;
 }
 
+#feedback li {
+	list-style: none;
+}
+
 .game p {
 	margin-top: 0.5em;
 	font-size: 1.8em;

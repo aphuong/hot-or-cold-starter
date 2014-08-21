@@ -1,16 +1,65 @@
 
 $(document).ready(function(){
+/*--- Display information modal box ---*/
+	$(".what").click(function(){
+  	$(".overlay").fadeIn(1000);
+	});
+
+	/*--- Hide information modal box ---*/
+	$("a.close").click(function(){
+		$(".overlay").fadeOut(1000);
+	});
 	
-	/*--- Display information modal box ---*/
-  	$(".what").click(function(){
-    	$(".overlay").fadeIn(1000);
+	
+  var secretNum
+  var guessCount
+  
+  var newGame = function() {
+    secretNum = Math.floor((Math.random() * 100) + 1);
+    guessCount = 0;
+  }; 
+  newGame();
 
-  	});
+	$(".new").click(function() {
+	 newGame();
+	});
 
-  	/*--- Hide information modal box ---*/
-  	$("a.close").click(function(){
-  		$(".overlay").fadeOut(1000);
-  	});
+	$("form").on("submit", function(event) {
+		event.preventDefault();
+		var userGuess = $(".text").val();
+		var guessNum = +userGuess;
+
+    guessCount = guessCount + 1;
+    $("#count").text(guessCount);
+    
+    $(".text").val('');
+    $("#feedback li").empty();
+    $("#guessList").append("<li>" + guessNum + "</li>");
+    
+
+    var difference = Math.abs(guessNum - secretNum)
+    
+    if (guessNum >= 1 && guessNum <= 100) {
+  		if (difference >= 50) {
+  			$("#feedback").append("<li>Freezing Cold</li>");
+  				} else if (difference >= 30 && difference < 50) {
+  					$("#feedback").append("<li>Ice Cold</li>");
+          } else if (difference >= 20 && difference < 30) {
+            $("#feedback").append("<li>Cold</li>");
+  				} else if (difference >= 10 && difference < 20) {
+  					$("#feedback").append("<li>Hot</li>"); 
+  				} else if (difference >= 5 && difference < 10) {
+  					$("#feedback").append("<li>Very Hot</li>");
+  				} else if (difference >= 1 && difference < 5) {
+            $("#feedback").append("<li>Flaming Hot</li>");
+          } else if (difference == 0) {
+  					$("#feedback").append("<li>Correct Guess ... You're on FIRE!</li>");
+  				}
+    } else {
+      alert("Please enter a whole number between 1 and 100!");
+    }
+  });
+
 
 });
 
