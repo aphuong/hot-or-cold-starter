@@ -35,7 +35,7 @@ $(document).ready(function(){
 		var userGuess = $(".text").val();
 		var guessNum
 		
-		if (userGuess !== Nan)
+		if (userGuess !== Nan) {
 			return guessNum = +userGuess;
 		};
 		
