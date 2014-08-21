@@ -21,8 +21,9 @@ $(document).ready(function(){
     $("#guessList").empty();
     $("#feedback").text("Make your Guess!");
     document.getElementById("userGuess").disabled = false;
+    document.getElementById("guessButton").disabled = false;
   }; 
-  	document.getElementById("guessButton").disabled = false;
+  	
   newGame();
 
 	$(".new").click(function() {
