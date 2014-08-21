@@ -35,13 +35,16 @@ $(document).ready(function(){
 		var userGuess = $(".text").val();
 		var guessNum = +userGuess;
 		
-		// guessCount will now increase by 1 each time user enters an input.
-    guessCount = guessCount + 1;
-    $("#count").text(guessCount);
+		if ($.isNumeric(guessNum)) {
+			// guessCount will now increase by 1 each time user enters an input.
+    	guessCount = guessCount + 1;
+    	$("#count").text(guessCount);
+    	$("#guessList").append("<li>" + guessNum + "</li>");
+		};
     
     $(".text").val('');
     $("#feedback li").empty();
-    $("#guessList").append("<li>" + guessNum + "</li>");
+   
     
 
     var difference = Math.abs(guessNum - secretNum)
@@ -67,7 +70,6 @@ $(document).ready(function(){
   				}
     } else {
       alert("Please enter a whole number between 1 and 100!");
-      $("#userGuess").val(' ');
 	    }
 	});
 });
