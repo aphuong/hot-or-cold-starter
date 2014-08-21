@@ -17,6 +17,10 @@ $(document).ready(function(){
   var newGame = function() {
     secretNum = Math.floor((Math.random() * 100) + 1);
     guessCount = 0;
+    $("#count").text(0);
+    $("#guessList").empty();
+    $("#feedback").text("Make your Guess!");
+    document.getElementById('userGuess').disabled = false;
   }; 
   newGame();
 
@@ -54,6 +58,7 @@ $(document).ready(function(){
             $("#feedback").append("<li>Flaming Hot</li>");
           } else if (difference == 0) {
   					$("#feedback").append("<li>Correct Guess ... You're on FIRE!</li>");
+  					document.getElementById('userGuess').disabled = true;
   				}
     } else {
       alert("Please enter a whole number between 1 and 100!");
